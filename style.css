@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+:root {
+  --white: #f0f0f0;
+  --light: #f8f8f8;
+  --black: #1a1a1a;
+  --line: #d6d6d6;
+  --grey: #8a8a8a;
+  --blue: #1992e6;
+  --today: #2b2b2b;
+  --green: #0eaa50;
+  --red: #cf0000;
+  --transparent: #000000a6;
+}
+body {
+  background-color: var(--white);
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center;
+  justify-content: center;
+  width: min(700px, 100%);
+  margin: 0 auto;
+  padding: 0 16px;
+  font-size: 16px;
+}
+.box {
+  height: min(100px, 100%);
+  aspect-ratio: 1;
+  padding: 8px;
+  color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:hover {
+  cursor: pointer;
+}
+.week {
+  font-weight: 500;
+  color: var(--green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.today {
+  position: relative;
+  color: var(--light);
+  transition: all 0.5s;
+}
+.today:hover {
+  color: var(--black);
+  transition: all 0.5s;
+}
+
+.today::after {
+  content: "";
+  z-index: -1;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: var(--green);
+  border-radius: 50%;
+  height: 100px;
+  bottom: 0px;
+  left: 0px;
+  animation: slideUp 0.5s linear 0s 1 forwards;
+}
+.today:hover::after {
+  animation: slideDown 0.5s linear 0s 1 forwards;
+}
+
+.event {
+  position: relative;
+  color: var(--black);
+  transition: all 0.5s;
+}
+.event:hover {
+  color: var(--light);
+  transition: all 0.5s;
+}
+
+.event::after {
+  content: "";
+  z-index: -1;
+  aspect-ratio: 1;
+  position: absolute;
+  background-color: var(--red);
+  border-radius: 50%;
+  height: 100px;
+  bottom: 0px;
+  left: 0px;
+  animation: slideDown 0.5s linear 0s 1 forwards;
+}
+.event:hover::after {
+  animation: slideUp 0.5s linear 0s 1 forwards;
+}
+.row {
+  margin: 24px auto 0px auto;
+  width: min(100%, 700px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 8px;
+}
+.col span {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--blue);
+}
+.btn {
+  width: 50px;
+  aspect-ratio: 1;
+  border: none;
+  background-color: var(--white);
+  border-radius: 50%;
+  color: var(--black);
+  display: inlin-flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn span:nth-child(2) {
+  padding-left: 50px;
+}
+.btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.hide {
+  visibility: hidden;
+}
+.modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--transparent);
+  padding: 16px;
+  overflow-y: auto;
+}
+.modal-body {
+  margin: auto;
+  width: min(100%, 600px);
+  padding: 24px;
+  border-radius: 16px;
+  min-height: 400px;
+  background-color: var(--white);
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: fadeDown 0.5s linear 0s 1 forwards;
+}
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title h1 {
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: 400;
+  color: var(--blue);
+}
+.modal-title h1 span:first-child {
+  font-weight: 500;
+}
+.modal-title h1 span:last-child {
+  color: var(--grey);
+}
+.modal-title .close {
+  font-weight: 300;
+  color: var(--grey);
+}
+.modal-title .close:hover {
+  cursor: pointer;
+}
+.modal-form {
+  margin: 16px 0;
+}
+.modal-form input {
+  width: 100%;
+  margin-bottom: 12px;
+  height: 54px;
+  padding: 0 16px;
+  border: none;
+  background: none;
+  border: 1px solid var(--grey);
+  color: var(--black);
+  font-size: 16px;
+  border-radius: 8px;
+}
+.modal-form input:focus {
+  outline: none;
+  border: 1px solid var(--blue);
+}
+.modal-form label {
+  position: relative;
+  top: 10px;
+  left: 16px;
+  background-color: var(--white);
+  font-size: 18px;
+  color: var(--grey);
+  display: inline-block;
+  padding: 0 12px;
+  height: 20px;
+  font-size: 14px;
+}
+.modal-form button {
+  width: 100%;
+  height: 54px;
+  border-radius: 8px;
+  border: none;
+  color: var(--light);
+  background-color: var(--green);
+  font-size: 18px;
+  font-weight: 300;
+}
+.modal-form button:hover {
+  cursor: pointer;
+}
+.event-card {
+  width: 100%;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  margin: 16px 0;
+}
+.card-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 32px;
+  line-height: 32px;
+}
+.card-title span:first-child {
+  width: calc(100% - 32px);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--black);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.card-title span:last-child {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
+  color: var(--black);
+}
+.card-title span:last-child:hover {
+  cursor: pointer;
+  font-weight: 500;
+}
+.event-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--grey);
+}
+.hide-modal {
+  display: none;
+}
+.hide-modal .modal-body {
+  display: none;
+}
+/* Animation */
+@keyframes slideDown {
+  0% {
+    height: 40px;
+    bottom: calc(50% - 20px);
+    left: calc(50% - 20px);
+  }
+  70% {
+    height: 12px;
+    bottom: 44px;
+    left: calc(50% - 6px);
+  }
+  100% {
+    height: 12px;
+    bottom: 20px;
+    left: calc(50% - 6px);
+  }
+}
+@keyframes slideUp {
+  0% {
+    height: 12px;
+    bottom: 20px;
+    left: calc(50% - 6px);
+  }
+  70% {
+    height: 12px;
+    bottom: 44px;
+    left: calc(50% - 8px);
+  }
+  100% {
+    height: 40px;
+    bottom: calc(50% - 20px);
+    left: calc(50% - 20px);
+  }
+}
+@keyframes fadeDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 536px) {
+  .container {
+    font-size: 12px;
+  }
+  .btn {
+    font-size: 12px;
+    width: 36px;
+  }
+  .row {
+    padding: 0 16px;
+  }
+  /* Animation */
+  @keyframes slideDown {
+    0% {
+      height: 40px;
+      bottom: calc(50% - 20px);
+      left: calc(50% - 20px);
+    }
+    70% {
+      height: 12px;
+      bottom: 44px;
+      left: calc(50% - 6px);
+    }
+    100% {
+      height: 12px;
+      bottom: 0px;
+      left: calc(50% - 6px);
+    }
+  }
+  @keyframes slideUp {
+    0% {
+      height: 12px;
+      bottom: 0px;
+      left: calc(50% - 6px);
+    }
+    70% {
+      height: 12px;
+      bottom: 44px;
+      left: calc(50% - 8px);
+    }
+    100% {
+      height: 40px;
+      bottom: calc(50% - 20px);
+      left: calc(50% - 20px);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Calendar || (Yash Kumar Saini)</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="icon.png" />
+    <!-- Google Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="row">
+      <div class="col">
+        <button class="btn">
+          <span class="material-symbols-outlined"> event </span>
+        </button>
+      </div>
+      <div class="col">
+        <span>Yash KS </span>
+      </div>
+      <div class="col">
+        <button class="btn" id="theme" onclick="changeTheme()">
+          <span class="material-symbols-outlined">dark_mode</span>
+        </button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span id="displayMonth"></span>
+        <span id="displayYear"></span>
+      </div>
+      <div class="col">
+        <button class="btn" onclick="prevMonth()">
+          <span class="material-symbols-outlined"> chevron_left </span>
+        </button>
+        <button class="btn" onclick="nextMonth()">
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </button>
+      </div>
+    </div>
+    <div class="container" id="week"></div>
+    <div class="container" id="calendar"></div>
+    <div class="modal hide-modal" id="modal">
+      <div class="modal-body">
+        <div class="modal-title">
+          <h1>
+            <span id="mDate"></span> <span id="mMonth"></span>
+            <span id="mYear"></span>
+          </h1>
+          <span class="material-symbols-outlined close" onclick="hideModal()">
+            close
+          </span>
+        </div>
+        <div class="modal-title">
+          <h1>
+            <span id="mDay"></span>
+          </h1>
+        </div>
+        <div class="modal-form">
+          <label>Event title <b>*</b></label>
+          <input type="text" id="eventName" autocomplete="off" />
+          <label>Description </label>
+          <input type="text" id="eventDesc" autocomplete="off" />
+          <button onclick="addEvent()">Add Event</button>
+        </div>
+        <div class="allEvents" id="allEvents"></div>
+      </div>
+    </div>
+    <script src="initials.js"></script>
+    <script src="theme.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
