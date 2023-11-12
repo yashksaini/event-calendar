@@ -15,6 +15,18 @@
 ## Introduction
 Event Calendar is a web application that allows users to add events to specific dates on a calendar. It provides two screens: one for the calendar view and another for listing all the events added, organized by date.
 
+---
+
+**⚠️ Warning: WebSQL Deprecated ⚠️**
+
+Please be aware that WebSQL is no longer supported. Consequently, the project will not function as it did previously. Consider migrating to alternative storage solutions such as IndexedDB to ensure compatibility and continued operation.
+
+Thank you for your understanding.
+
+---
+
+
+
 ## Demo
 
 
